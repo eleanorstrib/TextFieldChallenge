@@ -11,9 +11,9 @@ import UIKit
 
 class ZipCodeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        //
-        return true
+        let newLength = count(textField.text.utf16) + count(string.utf16) - range.length
+        
+        return newLength <= 5
     }
 }
