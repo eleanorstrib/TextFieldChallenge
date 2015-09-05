@@ -31,6 +31,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.textField1.delegate = zipCodeDelegate
         self.textField2.delegate = currencyDelegate
         self.textField3.delegate = self
+        
+        //make sure editing is off in textfield 3
+        self.textField3.userInteractionEnabled = false
     }
 
     
@@ -38,10 +41,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
 
     @IBAction func flipSwitch(sender: AnyObject) {
-        if (lockEditSwitch.on == false) {
-            textField3.userInteractionEnabled = false
-        } else {
+        if lockEditSwitch.on {
             textField3.userInteractionEnabled = true
+            
+        } else {
+            textField3.userInteractionEnabled = false
         }
         
     }
