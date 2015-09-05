@@ -38,7 +38,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     
     // Text Field Delegate Methods
-    
 
     @IBAction func flipSwitch(sender: AnyObject) {
         if lockEditSwitch.on {
