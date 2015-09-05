@@ -11,5 +11,7 @@ import UIKit
 
 class CurrencyTextFieldDelegate: NSObject, UITextFieldDelegate {
     //controls currency field input
+    
+    let decimals = Int()
 
 }

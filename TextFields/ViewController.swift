@@ -14,12 +14,13 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
+    @IBOutlet weak var lockEditSwitch: UISwitch!
 
     
     // Text Field Delegate objects
     let zipCodeDelegate = ZipCodeTextFieldDelegate()
     let currencyDelegate = CurrencyTextFieldDelegate()
-    let lockableTextDelegate = LockableTextFieldDelegate()
+    let lockableTextDelegate = self
     
     // Life Cycle Methods
     
@@ -29,11 +30,22 @@ class ViewController: UIViewController, UITextFieldDelegate {
         // Set the three delegates
         self.textField1.delegate = zipCodeDelegate
         self.textField2.delegate = currencyDelegate
-        self.textField3.delegate = lockableTextDelegate
+        self.textField3.delegate = self
     }
 
     
     // Text Field Delegate Methods
+    
+
+    @IBAction func flipSwitch(sender: AnyObject) {
+        if (lockEditSwitch.on == false) {
+            textField3.userInteractionEnabled = false
+        } else {
+            textField3.userInteractionEnabled = true
+        }
+        
+    }
+    
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
