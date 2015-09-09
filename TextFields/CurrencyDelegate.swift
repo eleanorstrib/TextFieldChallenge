@@ -14,12 +14,12 @@ class CurrencyTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        var currencyRange: NSRange
+//        var currencyRange: NSRange
         
         // set a variable for the current and updated text
         var currentText = textField.text as NSString
         currentText = currentText.stringByReplacingCharactersInRange(range, withString: string)
-        currencyRange = currentText.rangeOfString(currentText as String)
+//        currencyRange = currentText.rangeOfString(currentText as String)
         
         //Invoke instance of NSNumberFormatter
         //convert string to a float
@@ -36,7 +36,9 @@ class CurrencyTextFieldDelegate: NSObject, UITextFieldDelegate {
         
         currencyFormatted = formatter.stringFromNumber(currencyFloat)!
 
-        currentText = currentText.stringByReplacingCharactersInRange(currencyRange, withString: currencyFormatted)
+//        currentText = currentText.stringByReplacingCharactersInRange(currencyRange, withString: currencyFormatted)
+        
+        textField.text = currencyFormatted
 
         //print statements to debug
         println(currencyFormatted)
@@ -44,7 +46,7 @@ class CurrencyTextFieldDelegate: NSObject, UITextFieldDelegate {
         println(currentText as String)
         println(currentText.dynamicType)
 
-        return true
+        return false
 
     }
 }
